@@ -58,12 +58,6 @@
   pointer-events: none;
 }
 
-@media (max-width: 568px) {
-  .container {
-    top: calc(3.5rem + 8px);
-  }
-}
-
 .rotate {
   animation: rotate 1s infinite linear;
 }
