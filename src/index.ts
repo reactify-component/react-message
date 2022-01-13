@@ -1,7 +1,4 @@
-import { getTime } from '~/utils'
-export const date = getTime()
-const test = () => {
-  console.log('hello, rollup')
-  console.log(date)
-}
-export { test, getTime }
+import { message } from './utils'
+
+export { Message, MessageContainer } from 'components/message'
+export { message }

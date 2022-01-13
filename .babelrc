@@ -1,6 +1,5 @@
 {
   "presets": [
-    // if need react 
-    // "@babel/preset-react"
+    "@babel/preset-react"
   ]
 }

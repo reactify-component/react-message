@@ -1,4 +1,7 @@
-import { date, test } from '~'
+import React from 'react'
+import ReactDOM from 'react-dom'
+import App from './App'
 
-test()
-console.log(date)
+const app = document.getElementById('app')
+
+ReactDOM.render(React.createElement(App), app)

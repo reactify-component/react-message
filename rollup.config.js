@@ -1,14 +1,11 @@
 //@ts-check
-import typescript from '@rollup/plugin-typescript'
-import { terser } from 'rollup-plugin-terser'
-
-// import esbuild from 'rollup-plugin-esbuild'
-import { nodeResolve } from '@rollup/plugin-node-resolve'
+import { babel } from '@rollup/plugin-babel'
 import commonjs from '@rollup/plugin-commonjs'
-
-// import { babel } from '@rollup/plugin-babel'
-
+import { nodeResolve } from '@rollup/plugin-node-resolve'
+import typescript from '@rollup/plugin-typescript'
 import peerDepsExternal from 'rollup-plugin-peer-deps-external'
+import postcss from 'rollup-plugin-postcss'
+import { terser } from 'rollup-plugin-terser'
 
 const packageJson = require('./package.json')
 
@@ -76,26 +73,12 @@ const config = [
       nodeResolve(),
       commonjs({ include: 'node_modules/**' }),
       typescript({ tsconfig: './src/tsconfig.json', declaration: false }),
-      // esbuild({
-      //   include: /\.[jt]sx?$/,
-      //   exclude: /node_modules/,
-      //   sourceMap: false,
-      //   minify: process.env.NODE_ENV === 'production',
-      //   target: 'es2017',
-      //   jsxFactory: 'React.createElement',
-      //   jsxFragment: 'React.Fragment',
-      //   define: {
-      //     __VERSION__: '"x.y.z"',
-      //   },
-      //   tsconfig: './src/tsconfig.json',
-      //   loaders: {
-      //     '.json': 'json',
-      //     '.js': 'jsx',
-      //   },
-      // }),
+
       // @ts-ignore
       peerDepsExternal(),
-      // babel({}),
+      babel({}),
+
+      postcss({}),
     ],
 
     treeshake: true,
