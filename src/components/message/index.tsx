@@ -7,6 +7,7 @@ import {
   FaSolidTimesCircle,
   LoadingIcon,
 } from '../icons'
+// @ts-ignore
 import styles from './index.module.css'
 
 interface MessageProps {

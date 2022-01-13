@@ -1,64 +1,72 @@
-# Rollup Typescript library template
+# React Message
 
-Please use pnpm do this.
+![](https://cdn.jsdelivr.net/gh/Innei/fancy@master/2022/0113212709.png)
 
-```sh
-pnpm i
+A simple asynchronous React message popup utility, no needed React Context. So you can use it in anywhere. You just need to install React.
+
+Requirement:
+
+- React 17
+- React DOM 17
+
+## How to use
+
+```bash
+npm i react-message-popup
 ```
 
-# Usage
+```js
+import { message } from 'react-message-popup'
+message.success('成功', 4000)
+// etc.
 
-### Package
-
-Bundle your source code via tsc, rollup.
-
-```
-yarn package
-```
-
-### Dev
-
-Start dev mode by Vite.
-
-```
-yarn dev
-```
-
-### Delopy
-
-Delopy example to GitHub Pages.
-
-```
-yarn delopy
-yarn publish
-```
-
-# Additional
-
-If you want to bundle React JSX with rollup. Add additional packages.
-
-```
-pnpm i -D @babel/preset-react @babel/core @rollup/plugin-babel
-```
-
-And, un-comment this in `.babelrc`.
-
-```json
-{
-  "presets": ["@babel/preset-react"]
+message.loading('Loading...', 4000).then(({ destory }) => {
+  setTimeout(() => {
+    destory()
+    message.success('成功', 4000)
+  }, 2000)
 }
 ```
 
-Un-comment this in `rollup.config.js`
+## Interface
 
-```js
-import { babel } from '@rollup/plugin-babel'
+```ts
+export interface ArgsProps {
+  content: string
+  duration?: number | null
+  key?: string | number
+}
+type JointContent = ConfigContent | ArgsProps
+type ConfigContent = string
+type ConfigDuration = number | (() => number)
+export interface MessageInstance {
+  info(
+    content: JointContent,
+    duration?: ConfigDuration,
+  ): Promise<MessageReturnType>
+  success(
+    content: JointContent,
+    duration?: ConfigDuration,
+  ): Promise<MessageReturnType>
+  error(
+    content: JointContent,
+    duration?: ConfigDuration,
+  ): Promise<MessageReturnType>
+  warning(
+    content: JointContent,
+    duration?: ConfigDuration,
+  ): Promise<MessageReturnType>
+  warn(
+    content: JointContent,
+    duration?: ConfigDuration,
+  ): Promise<MessageReturnType>
+  loading(
+    content: JointContent,
+    duration?: ConfigDuration,
+  ): Promise<MessageReturnType>
+}
 
-// ...
-
-plugins: [
-    // ...
-   babel({}),
-  ],
-//...
+export type MessageReturnType = {
+  destory(): boolean
+}
 ```

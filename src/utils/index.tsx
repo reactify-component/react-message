@@ -32,7 +32,7 @@ const getContainerNode: () => HTMLElement = () => {
 const message: MessageInstance = {}
 ;(['success', 'error', 'warn', 'info', 'loading'] as const).forEach((type) => {
   message[type] = (content, duration = 2500) => {
-    return new Promise<Awaited<MessageReturnType>>((resolve) => {
+    return new Promise<MessageReturnType>((resolve) => {
       if (isServerSide) {
         return {
           // mock ssr server
