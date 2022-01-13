@@ -22,11 +22,6 @@
       "~/*": [
         "*"
       ]
-    },
-    "plugins": [
-      {
-        "transform": "@zerollup/ts-transform-paths",
-      }
-    ]
+    }
   }
 }
