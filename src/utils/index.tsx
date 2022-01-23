@@ -79,10 +79,14 @@ const message: MessageInstance = {}
           isDestroyed = true
           return true
         }
-        setTimeout(() => {
-          destory()
-          // 加 500ms 动画时间
-        }, reallyduration + 500)
+        // because Infinity is 0 in timer
+        if (reallyduration !== Infinity) {
+          setTimeout(() => {
+            destory()
+            // 加 500ms 动画时间
+          }, reallyduration + 500)
+        }
+
         container.appendChild(fragment)
 
         resolve({

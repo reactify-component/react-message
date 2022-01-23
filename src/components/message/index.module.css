@@ -1,11 +1,14 @@
+:global(html.light) .wrap,
+:global(body.light) .wrap,
 .wrap {
-  display: block;
-  margin: 12px auto;
-  text-align: center;
-  line-height: 1.5;
-
   --message-background-color: #fff;
   --message-text-color: #333;
+}
+
+:global(html.dark) .wrap,
+:global(body.dark) .wrap {
+  --message-background-color: #212121;
+  --message-text-color: #858585;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,6 +16,14 @@
     --message-background-color: #212121;
     --message-text-color: #858585;
   }
+}
+
+.wrap {
+  display: block;
+  margin: 12px auto;
+  text-align: center;
+  line-height: 1.5;
+  max-width: 80vw;
 }
 
 .inner-wrap {
@@ -36,7 +47,8 @@
     display: inline-block;
     color: var(--message-text-color);
     padding-left: 12px;
-    white-space: nowrap;
+    word-break: break-all;
+    text-align: left;
   }
 
   &.appear {

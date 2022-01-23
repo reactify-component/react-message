@@ -29,7 +29,7 @@ export const Message: FC<MessageProps> = (props) => {
   const wrapRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
     const timer = setTimeout(() => {
-      if (!wrapRef.current) {
+      if (!wrapRef.current || duration === Infinity) {
         return
       }
       wrapRef.current.classList.add(styles['disappear'])

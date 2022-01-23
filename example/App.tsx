@@ -67,6 +67,19 @@ export default function () {
         >
           Loading
         </button>
+
+        <button
+          type="button"
+          className="btn btn-light"
+          onClick={() => {
+            message.info(
+              'Too long Too simple.Too long Too simple.Too long Too simple.Too long Too simple.Too long Too simple.Too long Too simple.Too long Too simple.Too long Too simple.Too long Too simple.Too long Too simple.Too long Too simple.Too long Too simple.Too long Too simple.Too long Too simple.Too long Too simple.Too long Too simple.Too long Too simple.Too long Too simple.',
+              Infinity,
+            )
+          }}
+        >
+          Too long message.
+        </button>
       </div>
     </div>
   )
