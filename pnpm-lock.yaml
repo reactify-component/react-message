@@ -20,7 +20,7 @@ specifiers:
   jest: 27.4.7
   lint-staged: 12.3.3
   postcss: 8.4.6
-  postcss-preset-env: 7.3.0
+  postcss-preset-env: 7.3.1
   prettier: 2.5.1
   react: 17.0.2
   react-dom: 17.0.2
@@ -54,7 +54,7 @@ devDependencies:
   jest: 27.4.7
   lint-staged: 12.3.3
   postcss: 8.4.6
-  postcss-preset-env: 7.3.0_postcss@8.4.6
+  postcss-preset-env: 7.3.1_postcss@8.4.6
   prettier: 2.5.1
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
@@ -1763,7 +1763,7 @@ packages:
       postcss: ^8.3
     dependencies:
       postcss: 8.4.6
-      postcss-selector-parser: 6.0.8
+      postcss-selector-parser: 6.0.9
     dev: true
 
   /css-declaration-sorter/6.1.4_postcss@8.4.6:
@@ -1784,7 +1784,7 @@ packages:
       postcss: ^8.3
     dependencies:
       postcss: 8.4.6
-      postcss-selector-parser: 6.0.8
+      postcss-selector-parser: 6.0.9
     dev: true
 
   /css-prefers-color-scheme/6.0.3_postcss@8.4.6:
@@ -4280,7 +4280,7 @@ packages:
       postcss: ^8.0.2
     dependencies:
       postcss: 8.4.6
-      postcss-selector-parser: 6.0.8
+      postcss-selector-parser: 6.0.9
     dev: true
 
   /postcss-calc/8.2.2_postcss@8.4.6:
@@ -4382,7 +4382,7 @@ packages:
       postcss: ^8.1.2
     dependencies:
       postcss: 8.4.6
-      postcss-selector-parser: 6.0.8
+      postcss-selector-parser: 6.0.9
     dev: true
 
   /postcss-dir-pseudo-class/6.0.3_postcss@8.4.6:
@@ -4392,7 +4392,7 @@ packages:
       postcss: ^8.3
     dependencies:
       postcss: 8.4.6
-      postcss-selector-parser: 6.0.8
+      postcss-selector-parser: 6.0.9
     dev: true
 
   /postcss-discard-comments/5.0.1_postcss@8.4.6:
@@ -4458,7 +4458,7 @@ packages:
       postcss: ^8.3
     dependencies:
       postcss: 8.4.6
-      postcss-selector-parser: 6.0.8
+      postcss-selector-parser: 6.0.9
     dev: true
 
   /postcss-focus-within/5.0.3_postcss@8.4.6:
@@ -4468,7 +4468,7 @@ packages:
       postcss: ^8.3
     dependencies:
       postcss: 8.4.6
-      postcss-selector-parser: 6.0.8
+      postcss-selector-parser: 6.0.9
     dev: true
 
   /postcss-font-variant/5.0.0_postcss@8.4.6:
@@ -4634,7 +4634,7 @@ packages:
     dependencies:
       icss-utils: 5.1.0_postcss@8.4.6
       postcss: 8.4.6
-      postcss-selector-parser: 6.0.8
+      postcss-selector-parser: 6.0.9
       postcss-value-parser: 4.2.0
     dev: true
 
@@ -4645,7 +4645,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       postcss: 8.4.6
-      postcss-selector-parser: 6.0.8
+      postcss-selector-parser: 6.0.9
     dev: true
 
   /postcss-modules-values/4.0.0_postcss@8.4.6:
@@ -4681,7 +4681,7 @@ packages:
       postcss: ^8.3
     dependencies:
       postcss: 8.4.6
-      postcss-selector-parser: 6.0.8
+      postcss-selector-parser: 6.0.9
     dev: true
 
   /postcss-normalize-charset/5.0.1_postcss@8.4.6:
@@ -4775,13 +4775,9 @@ packages:
       postcss-value-parser: 4.2.0
     dev: true
 
-  /postcss-opacity-percentage/1.1.1_postcss@8.4.6:
-    resolution: {integrity: sha512-WZo/LXA2fDrkCwN7QQbf3uc6hSd1SON+Ilb0Smg9FojqpOPhrHx9kmv3hXxWi1rPepKl/NdoAU6FmhTnYKFigg==}
-    engines: {node: '>=16'}
-    peerDependencies:
-      postcss: '>=8'
-    dependencies:
-      postcss: 8.4.6
+  /postcss-opacity-percentage/1.1.2:
+    resolution: {integrity: sha512-lyUfF7miG+yewZ8EAk9XUBIlrHyUE6fijnesuz+Mj5zrIHIEw6KcIZSOk/elVMqzLvREmXB83Zi/5QpNRYd47w==}
+    engines: {node: ^12 || ^14 || >=16}
     dev: true
 
   /postcss-ordered-values/5.0.3_postcss@8.4.6:
@@ -4822,8 +4818,8 @@ packages:
       postcss-value-parser: 4.2.0
     dev: true
 
-  /postcss-preset-env/7.3.0_postcss@8.4.6:
-    resolution: {integrity: sha512-mEK7vqBL/BvynALHNc9pC7T7jolNm3ouornf9p4WpXW+sGooV3kCLvS4kKXE+rL6i12LKUgleJOZRPaoOuNLEg==}
+  /postcss-preset-env/7.3.1_postcss@8.4.6:
+    resolution: {integrity: sha512-x7fNsJxfkY60P4FUNwhJUOfXBFfnObd2EcUYY97sXZ0XRLgmAE65es9EFIYHq1rAk7X3LMfbG+L9wYgkrNsq5Q==}
     engines: {node: ^12 || ^14 || >=16}
     peerDependencies:
       postcss: ^8.4
@@ -4860,7 +4856,7 @@ packages:
       postcss-logical: 5.0.3_postcss@8.4.6
       postcss-media-minmax: 5.0.0_postcss@8.4.6
       postcss-nesting: 10.1.2_postcss@8.4.6
-      postcss-opacity-percentage: 1.1.1_postcss@8.4.6
+      postcss-opacity-percentage: 1.1.2
       postcss-overflow-shorthand: 3.0.2_postcss@8.4.6
       postcss-page-break: 3.0.4_postcss@8.4.6
       postcss-place: 7.0.3_postcss@8.4.6
@@ -4915,14 +4911,6 @@ packages:
     dependencies:
       balanced-match: 1.0.2
       postcss: 8.4.6
-    dev: true
-
-  /postcss-selector-parser/6.0.8:
-    resolution: {integrity: sha512-D5PG53d209Z1Uhcc0qAZ5U3t5HagH3cxu+WLZ22jt3gLUpXM4eXXfiO14jiDWST3NNooX/E8wISfOhZ9eIjGTQ==}
-    engines: {node: '>=4'}
-    dependencies:
-      cssesc: 3.0.0
-      util-deprecate: 1.0.2
     dev: true
 
   /postcss-selector-parser/6.0.9:
