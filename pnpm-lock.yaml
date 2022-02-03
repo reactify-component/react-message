@@ -12,7 +12,7 @@ specifiers:
   '@types/jest': 27.4.0
   '@types/lodash-es': 4.17.5
   '@types/node': 16.11.22
-  '@types/react': 17.0.38
+  '@types/react': 17.0.39
   '@types/react-dom': 17.0.11
   dts-bundle-generator: 6.5.0
   gh-pages: 3.2.3
@@ -46,7 +46,7 @@ devDependencies:
   '@types/jest': 27.4.0
   '@types/lodash-es': 4.17.5
   '@types/node': 16.11.22
-  '@types/react': 17.0.38
+  '@types/react': 17.0.39
   '@types/react-dom': 17.0.11
   dts-bundle-generator: 6.5.0
   gh-pages: 3.2.3
@@ -1058,11 +1058,11 @@ packages:
   /@types/react-dom/17.0.11:
     resolution: {integrity: sha512-f96K3k+24RaLGVu/Y2Ng3e1EbZ8/cVJvypZWd7cy0ofCBaf2lcM46xNhycMZ2xGwbBjRql7hOlZ+e2WlJ5MH3Q==}
     dependencies:
-      '@types/react': 17.0.38
+      '@types/react': 17.0.39
     dev: true
 
-  /@types/react/17.0.38:
-    resolution: {integrity: sha512-SI92X1IA+FMnP3qM5m4QReluXzhcmovhZnLNm3pyeQlooi02qI7sLiepEYqT678uNiyc25XfCqxREFpy3W7YhQ==}
+  /@types/react/17.0.39:
+    resolution: {integrity: sha512-UVavlfAxDd/AgAacMa60Azl7ygyQNRwC/DsHZmKgNvPmRR5p70AJ5Q9EAmL2NWOJmeV+vVUI4IAP7GZrN8h8Ug==}
     dependencies:
       '@types/prop-types': 15.7.4
       '@types/scheduler': 0.16.2
