@@ -20,7 +20,7 @@ specifiers:
   jest: 27.5.1
   lint-staged: 12.3.3
   postcss: 8.4.6
-  postcss-preset-env: 7.3.2
+  postcss-preset-env: 7.3.3
   prettier: 2.5.1
   react: 17.0.2
   react-dom: 17.0.2
@@ -54,7 +54,7 @@ devDependencies:
   jest: 27.5.1
   lint-staged: 12.3.3
   postcss: 8.4.6
-  postcss-preset-env: 7.3.2_postcss@8.4.6
+  postcss-preset-env: 7.3.3_postcss@8.4.6
   prettier: 2.5.1
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
@@ -1822,8 +1822,8 @@ packages:
     engines: {node: '>= 6'}
     dev: true
 
-  /cssdb/6.2.1:
-    resolution: {integrity: sha512-TBIhtDCOeYjwr44Vpl1g/224/18lI0jW+PKdA5ZP30dhre3eEutVUb2mnqUnpRPiPWQB7BQf8CWiUGOa966Fnw==}
+  /cssdb/6.3.0:
+    resolution: {integrity: sha512-U/nJSGsM0NIEsVPwat6r6QrvtqZ8m+eYb8qLoSFXXWNghy5x3z6ftubzbb6AMFcvaYVVRXKAmgD1I1e2A31qug==}
     dev: true
 
   /cssesc/3.0.0:
@@ -4892,8 +4892,8 @@ packages:
       postcss-value-parser: 4.2.0
     dev: true
 
-  /postcss-preset-env/7.3.2_postcss@8.4.6:
-    resolution: {integrity: sha512-bxKNZu7/JWTiePds3IJlDdnCaYkIQt38KkfMX9mKmDw0+D8tpf/a+1sog34BuiDsRsKWYYGaPvfKw61gJs7f6A==}
+  /postcss-preset-env/7.3.3_postcss@8.4.6:
+    resolution: {integrity: sha512-/4EIceyxf6LKihp88YnQ0uExt//EHozxOspsCQbLq9/RB4W0zutdk52XJZzDYtCkvergw0NTTQvB7TpdxBRbvQ==}
     engines: {node: ^12 || ^14 || >=16}
     peerDependencies:
       postcss: ^8.4
@@ -4908,7 +4908,7 @@ packages:
       css-blank-pseudo: 3.0.3_postcss@8.4.6
       css-has-pseudo: 3.0.4_postcss@8.4.6
       css-prefers-color-scheme: 6.0.3_postcss@8.4.6
-      cssdb: 6.2.1
+      cssdb: 6.3.0
       postcss: 8.4.6
       postcss-attribute-case-insensitive: 5.0.0_postcss@8.4.6
       postcss-clamp: 3.0.0_postcss@8.4.6
