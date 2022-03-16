@@ -21,7 +21,7 @@ specifiers:
   lint-staged: 12.3.6
   postcss: 8.4.12
   postcss-preset-env: 7.4.2
-  prettier: 2.5.1
+  prettier: 2.6.0
   react: 17.0.2
   react-dom: 17.0.2
   rollup: 2.70.1
@@ -55,7 +55,7 @@ devDependencies:
   lint-staged: 12.3.6
   postcss: 8.4.12
   postcss-preset-env: 7.4.2_postcss@8.4.12
-  prettier: 2.5.1
+  prettier: 2.6.0
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
   rollup: 2.70.1
@@ -550,7 +550,7 @@ packages:
   /@innei-util/prettier/0.4.1:
     resolution: {integrity: sha512-wodhITa9pR9141ASldYHX1n5B1gZ6KRorJjAU37Qiva8KaeJ4+FJVCl/O0abSwwuLOgM6GRuYcLmg9b3ZAjLRA==}
     dependencies:
-      prettier: 2.5.1
+      prettier: 2.6.0
       prettier-package-json: 2.6.0
     dev: true
 
@@ -5016,8 +5016,8 @@ packages:
       sort-order: 1.0.1
     dev: true
 
-  /prettier/2.5.1:
-    resolution: {integrity: sha512-vBZcPRUR5MZJwoyi3ZoyQlc1rXeEck8KgeC9AwwOn+exuxLxq5toTRDTSaVrXHxelDMHy9zlicw8u66yxoSUFg==}
+  /prettier/2.6.0:
+    resolution: {integrity: sha512-m2FgJibYrBGGgQXNzfd0PuDGShJgRavjUoRCw1mZERIWVSXF0iLzLm+aOqTAbLnC3n6JzUhAA8uZnFVghHJ86A==}
     engines: {node: '>=10.13.0'}
     hasBin: true
     dev: true
