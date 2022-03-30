@@ -1,30 +1,64 @@
 import { Message, MessageContainer } from 'components/message'
 import React from 'react'
 import ReactDOM from 'react-dom'
+import type { Root, createRoot as __ } from 'react-dom/client'
+
 import { MessageContainerPrefixId } from '~/constants'
 import { MessageInstance, MessageReturnType } from '~/interfaces'
 
+const { version } = ReactDOM
+
+const is18 = version.startsWith('18')
+
+const createRoot = (...rest: Parameters<typeof __>) => {
+  if (is18) {
+    return new Promise<ReturnType<typeof __>>((resolve) => {
+      import('react-dom/client').then((mo) => {
+        resolve(mo.createRoot(...rest))
+      })
+    })
+  }
+}
+
 const isServerSide = typeof window === 'undefined'
 let containerNode: HTMLElement | null
-// @ts-ignore
-const getContainerNode: () => HTMLElement = () => {
-  if (isServerSide) {
-    return
-  }
-  if (!containerNode) {
-    const $root = document.getElementById(MessageContainerPrefixId)
-    if ($root) {
-      containerNode = $root
-      return $root
-    }
-    const $f = document.createDocumentFragment()
-    ReactDOM.render(<MessageContainer />, $f)
-    document.body.appendChild($f)
+let containerRoot: Root | null
 
-    containerNode = document.getElementById(MessageContainerPrefixId)
-    return containerNode
-  }
-  return containerNode
+const getContainerNode: () => Promise<[HTMLElement, Root | null]> = () => {
+  return new Promise<[HTMLElement, Root | null]>(async (resolve, reject) => {
+    if (isServerSide) {
+      return
+    }
+    if (!containerNode) {
+      const $root = document.getElementById(MessageContainerPrefixId)
+      if ($root) {
+        containerNode = $root
+        return resolve([$root, containerRoot])
+      }
+      const $f = document.createElement('div')
+      $f.id = MessageContainerPrefixId
+
+      if (is18) {
+        containerRoot = (await createRoot($f))!
+
+        containerRoot.render(<MessageContainer />)
+      } else {
+        ReactDOM.render(<MessageContainer />, $f)
+      }
+
+      document.body.appendChild($f)
+
+      containerNode = document.getElementById(MessageContainerPrefixId)
+      if (containerNode) {
+        return resolve([containerNode, containerRoot])
+      } else {
+        requestAnimationFrame(() => {
+          getContainerNode().then(resolve)
+        })
+      }
+    }
+    return resolve([containerNode!, containerRoot!])
+  })
 }
 
 //@ts-ignore
@@ -42,7 +76,7 @@ const message: MessageInstance = {}
         }
       }
 
-      requestAnimationFrame(() => {
+      requestAnimationFrame(async () => {
         let message: string
         const configDuration =
           typeof content === 'string' ? duration : content.duration ?? duration
@@ -58,24 +92,38 @@ const message: MessageInstance = {}
         if (!message) {
           throw new Error('message content is required')
         }
-        const container = getContainerNode()
+        const [container, containerRoot] = await getContainerNode()
 
         const fragment = document.createElement('div')
 
-        ReactDOM.render(
-          <Message type={type} duration={reallyduration} message={message} />,
-          fragment,
-        )
+        let root: Root | null = null
+        if (is18 && containerRoot) {
+          root = (await createRoot(fragment))!
+
+          root.render(
+            <Message type={type} duration={reallyduration} message={message} />,
+          )
+        } else {
+          ReactDOM.render(
+            <Message type={type} duration={reallyduration} message={message} />,
+            fragment,
+          )
+        }
 
         let isDestroyed = false
         const destory = () => {
           if (isDestroyed) {
             return false
           }
-          // react dom can not remove document fragment
-          // NotFoundError: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.
-          ReactDOM.unmountComponentAtNode(fragment)
-          container.removeChild(fragment)
+          if (is18) {
+            root && root.unmount()
+          } else {
+            // react dom can not remove document fragment
+            // NotFoundError: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.
+            ReactDOM.unmountComponentAtNode(fragment)
+            container.removeChild(fragment)
+          }
+
           isDestroyed = true
           return true
         }
@@ -87,7 +135,9 @@ const message: MessageInstance = {}
           }, reallyduration + 500)
         }
 
-        container.appendChild(fragment)
+        requestAnimationFrame(() => {
+          container.appendChild(fragment)
+        })
 
         resolve({
           destory,

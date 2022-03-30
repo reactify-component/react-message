@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import tsconfigPaths from 'vite-tsconfig-paths'
+
 const { resolve } = require('path')
 
 export default defineConfig({
@@ -13,6 +14,9 @@ export default defineConfig({
     }),
   ],
   root: resolve(__dirname, './example'),
+  optimizeDeps: {
+    exclude: ['react-dom/client'],
+  },
   build: {
     rollupOptions: {
       input: {
