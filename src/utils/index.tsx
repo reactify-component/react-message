@@ -1,7 +1,7 @@
 import { Message, MessageContainer } from 'components/message'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import type { Root, createRoot as __ } from 'react-dom/client'
+import { Root, createRoot } from 'react-dom/client'
 
 import { MessageContainerPrefixId } from '~/constants'
 import { MessageInstance, MessageReturnType } from '~/interfaces'
@@ -9,15 +9,8 @@ import { MessageInstance, MessageReturnType } from '~/interfaces'
 const { version } = ReactDOM
 
 const is18 = version.startsWith('18')
-
-const createRoot = (...rest: Parameters<typeof __>) => {
-  if (is18) {
-    return new Promise<ReturnType<typeof __>>((resolve) => {
-      import('react-dom/client').then((mo) => {
-        resolve(mo.createRoot(...rest))
-      })
-    })
-  }
+if (!is18) {
+  throw new TypeError('react version low than 18 is not supported')
 }
 
 const isServerSide = typeof window === 'undefined'
@@ -38,13 +31,9 @@ const getContainerNode: () => Promise<[HTMLElement, Root | null]> = () => {
       const $f = document.createElement('div')
       $f.id = MessageContainerPrefixId
 
-      if (is18) {
-        containerRoot = (await createRoot($f))!
+      containerRoot = createRoot($f)
 
-        containerRoot.render(<MessageContainer />)
-      } else {
-        ReactDOM.render(<MessageContainer />, $f)
-      }
+      containerRoot.render(<MessageContainer />)
 
       document.body.appendChild($f)
 
@@ -97,32 +86,20 @@ const message: MessageInstance = {}
         const fragment = document.createElement('div')
 
         let root: Root | null = null
-        if (is18 && containerRoot) {
-          root = (await createRoot(fragment))!
+        if (containerRoot) {
+          root = createRoot(fragment)
 
           root.render(
             <Message type={type} duration={reallyduration} message={message} />,
           )
-        } else {
-          ReactDOM.render(
-            <Message type={type} duration={reallyduration} message={message} />,
-            fragment,
-          )
         }
-
         let isDestroyed = false
         const destory = () => {
           if (isDestroyed) {
             return false
           }
-          if (is18) {
-            root && root.unmount()
-          } else {
-            // react dom can not remove document fragment
-            // NotFoundError: Failed to execute 'removeChild' on 'Node': The node to be removed is not a child of this node.
-            ReactDOM.unmountComponentAtNode(fragment)
-            container.removeChild(fragment)
-          }
+
+          root && root.unmount()
 
           isDestroyed = true
           return true

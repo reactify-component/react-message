@@ -14,9 +14,7 @@ export default defineConfig({
     }),
   ],
   root: resolve(__dirname, './example'),
-  optimizeDeps: {
-    exclude: ['react-dom/client'],
-  },
+
   build: {
     rollupOptions: {
       input: {
