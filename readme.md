@@ -6,8 +6,10 @@ A simple asynchronous React message popup utility, no needed React Context. So y
 
 Requirement:
 
-- React 17
-- React DOM 17
+- React 18
+- React DOM 18
+
+**NOTE: If you use React 17, please use version 0.2**
 
 ## How to use
 
