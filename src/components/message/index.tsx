@@ -1,5 +1,7 @@
 import React, { FC, useEffect, useRef } from 'react'
 
+import { MessageContainerPrefixId } from '~/constants'
+
 import {
   FaSolidCheckCircle,
   FaSolidExclamationCircle,
@@ -52,5 +54,7 @@ export const Message: FC<MessageProps> = (props) => {
 }
 
 export const MessageContainer = () => {
-  return <div className={styles['container']}></div>
+  return (
+    <div className={styles['container']} id={MessageContainerPrefixId}></div>
+  )
 }

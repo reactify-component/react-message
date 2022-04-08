@@ -8,16 +8,12 @@ import { MessageInstance, MessageReturnType } from '~/interfaces'
 
 const { version } = ReactDOM
 
-const is18 = version.startsWith('18')
-if (!is18) {
-  throw new TypeError('react version low than 18 is not supported')
-}
-
 const isServerSide = typeof window === 'undefined'
 let containerNode: HTMLElement | null
 let containerRoot: Root | null
 
 const getContainerNode: () => Promise<[HTMLElement, Root | null]> = () => {
+  // eslint-disable-next-line no-async-promise-executor
   return new Promise<[HTMLElement, Root | null]>(async (resolve, reject) => {
     if (isServerSide) {
       return
@@ -29,7 +25,6 @@ const getContainerNode: () => Promise<[HTMLElement, Root | null]> = () => {
         return resolve([$root, containerRoot])
       }
       const $f = document.createElement('div')
-      $f.id = MessageContainerPrefixId
 
       containerRoot = createRoot($f)
 
@@ -41,19 +36,38 @@ const getContainerNode: () => Promise<[HTMLElement, Root | null]> = () => {
       if (containerNode) {
         return resolve([containerNode, containerRoot])
       } else {
-        requestAnimationFrame(() => {
-          getContainerNode().then(resolve)
-        })
+        const count = 0
+        const getContainerNodeNextFrame = (count: number) => {
+          if (count > 10) {
+            return reject('getContainerNodeNextFrame try max times.')
+          }
+          requestAnimationFrame(() => {
+            const $root = document.getElementById(MessageContainerPrefixId)
+            if ($root) {
+              containerNode = $root
+
+              return resolve([$root, containerRoot])
+            }
+            getContainerNodeNextFrame(count + 1)
+          })
+        }
+
+        return getContainerNodeNextFrame(count)
       }
     }
     return resolve([containerNode!, containerRoot!])
   })
 }
 
-//@ts-ignore
+// @ts-ignore
 
 const message: MessageInstance = {}
 ;(['success', 'error', 'warn', 'info', 'loading'] as const).forEach((type) => {
+  const is18 = version.startsWith('18')
+  if (!is18) {
+    throw new TypeError('react version low than 18 is not supported')
+  }
+
   message[type] = (content, duration = 2500) => {
     return new Promise<MessageReturnType>((resolve) => {
       if (isServerSide) {
@@ -100,6 +114,10 @@ const message: MessageInstance = {}
           }
 
           root && root.unmount()
+
+          requestAnimationFrame(() => {
+            fragment.remove()
+          })
 
           isDestroyed = true
           return true
