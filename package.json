@@ -64,7 +64,7 @@
     "@babel/core": "7.17.9",
     "@innei-util/eslint-config-react-ts": "0.2.1",
     "@innei-util/eslint-config-ts": "0.5.1",
-    "@innei-util/prettier": "0.5.0",
+    "@innei-util/prettier": "0.5.1",
     "@rollup/plugin-babel": "5.3.1",
     "@rollup/plugin-commonjs": "21.0.3",
     "@rollup/plugin-node-resolve": "13.2.0",
