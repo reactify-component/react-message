@@ -62,7 +62,7 @@
   },
   "devDependencies": {
     "@babel/core": "7.17.9",
-    "@innei-util/eslint-config-react-ts": "0.2.1",
+    "@innei-util/eslint-config-react-ts": "0.8.2",
     "@innei-util/eslint-config-ts": "0.5.1",
     "@innei-util/prettier": "0.5.1",
     "@rollup/plugin-babel": "5.3.1",

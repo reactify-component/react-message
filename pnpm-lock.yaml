@@ -2,7 +2,7 @@ lockfileVersion: 5.3
 
 specifiers:
   '@babel/core': 7.17.9
-  '@innei-util/eslint-config-react-ts': 0.2.1
+  '@innei-util/eslint-config-react-ts': 0.8.2
   '@innei-util/eslint-config-ts': 0.5.1
   '@innei-util/prettier': 0.5.1
   '@rollup/plugin-babel': 5.3.1
@@ -36,7 +36,7 @@ specifiers:
 
 devDependencies:
   '@babel/core': 7.17.9
-  '@innei-util/eslint-config-react-ts': 0.2.1_typescript@4.6.3
+  '@innei-util/eslint-config-react-ts': 0.8.2_typescript@4.6.3
   '@innei-util/eslint-config-ts': 0.5.1_typescript@4.6.3
   '@innei-util/prettier': 0.5.1
   '@rollup/plugin-babel': 5.3.1_@babel+core@7.17.9+rollup@2.70.1
@@ -528,8 +528,8 @@ packages:
       - supports-color
     dev: true
 
-  /@innei-util/eslint-config-react-ts/0.2.1_typescript@4.6.3:
-    resolution: {integrity: sha512-6wfdPryn1xi0Q8FFR5v8qiZNIa58WE7LFQc2e0lxfQAeUmdhrCyIGCv+O3sZzCe7pH48WdWy3J6Eo4bcSaI9Hw==}
+  /@innei-util/eslint-config-react-ts/0.8.2_typescript@4.6.3:
+    resolution: {integrity: sha512-iyqzeKxGXgev5okLOrxB96GeKufB+/ao2TPOT+j/s7DGY4jJ8H+SHnnJxGJOXeZIScq7M/gUU60Jp8CEuecjrQ==}
     peerDependencies:
       typescript: '>=4'
     dependencies:
