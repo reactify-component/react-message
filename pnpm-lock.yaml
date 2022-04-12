@@ -4,7 +4,7 @@ specifiers:
   '@babel/core': 7.17.9
   '@innei-util/eslint-config-react-ts': 0.8.2
   '@innei-util/eslint-config-ts': 0.8.2
-  '@innei-util/prettier': 0.5.1
+  '@innei-util/prettier': 0.8.2
   '@rollup/plugin-babel': 5.3.1
   '@rollup/plugin-commonjs': 21.0.3
   '@rollup/plugin-node-resolve': 13.2.0
@@ -38,7 +38,7 @@ devDependencies:
   '@babel/core': 7.17.9
   '@innei-util/eslint-config-react-ts': 0.8.2_typescript@4.6.3
   '@innei-util/eslint-config-ts': 0.8.2_typescript@4.6.3
-  '@innei-util/prettier': 0.5.1
+  '@innei-util/prettier': 0.8.2
   '@rollup/plugin-babel': 5.3.1_@babel+core@7.17.9+rollup@2.70.1
   '@rollup/plugin-commonjs': 21.0.3_rollup@2.70.1
   '@rollup/plugin-node-resolve': 13.2.0_rollup@2.70.1
@@ -556,8 +556,8 @@ packages:
       - supports-color
     dev: true
 
-  /@innei-util/prettier/0.5.1:
-    resolution: {integrity: sha512-tzP9dqjbTgwV+dIJf0HqDD+dA5mub+3T/caTyuklkLpsCeRZ57vA3gm/SNy3CX572poNRLz5rpnkn+dMHA6BfA==}
+  /@innei-util/prettier/0.8.2:
+    resolution: {integrity: sha512-PuSnBp2zoX1HfmPPKWdr0uEOUQS/nJYBid5HL4RpV+zAiVrUYDfGK0F9N8ugEvPmP7I3gC85BjFTvNCDciYsgg==}
     dependencies:
       '@trivago/prettier-plugin-sort-imports': /@ianvs/prettier-plugin-sort-imports/3.3.0_prettier@2.6.2
       prettier: 2.6.2
