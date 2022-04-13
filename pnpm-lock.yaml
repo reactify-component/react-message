@@ -8,7 +8,7 @@ specifiers:
   '@rollup/plugin-babel': 5.3.1
   '@rollup/plugin-commonjs': 21.0.3
   '@rollup/plugin-node-resolve': 13.2.0
-  '@rollup/plugin-typescript': 8.3.1
+  '@rollup/plugin-typescript': 8.3.2
   '@types/jest': 27.4.1
   '@types/lodash-es': 4.17.6
   '@types/node': 16.11.26
@@ -42,7 +42,7 @@ devDependencies:
   '@rollup/plugin-babel': 5.3.1_@babel+core@7.17.9+rollup@2.70.1
   '@rollup/plugin-commonjs': 21.0.3_rollup@2.70.1
   '@rollup/plugin-node-resolve': 13.2.0_rollup@2.70.1
-  '@rollup/plugin-typescript': 8.3.1_8fb0118e9d69f3600cbb8f144f7d456c
+  '@rollup/plugin-typescript': 8.3.2_8fb0118e9d69f3600cbb8f144f7d456c
   '@types/jest': 27.4.1
   '@types/lodash-es': 4.17.6
   '@types/node': 16.11.26
@@ -858,8 +858,8 @@ packages:
       rollup: 2.70.1
     dev: true
 
-  /@rollup/plugin-typescript/8.3.1_8fb0118e9d69f3600cbb8f144f7d456c:
-    resolution: {integrity: sha512-84rExe3ICUBXzqNX48WZV2Jp3OddjTMX97O2Py6D1KJaGSwWp0mDHXj+bCGNJqWHIEKDIT2U0sDjhP4czKi6cA==}
+  /@rollup/plugin-typescript/8.3.2_8fb0118e9d69f3600cbb8f144f7d456c:
+    resolution: {integrity: sha512-MtgyR5LNHZr3GyN0tM7gNO9D0CS+Y+vflS4v/PHmrX17JCkHUYKvQ5jN5o3cz1YKllM3duXUqu3yOHwMPUxhDg==}
     engines: {node: '>=8.0.0'}
     peerDependencies:
       rollup: ^2.14.0
