@@ -22,9 +22,9 @@ import { message } from 'react-message-popup'
 message.success('成功', 4000)
 // etc.
 
-message.loading('Loading...', 4000).then(({ destory }) => {
+message.loading('Loading...', 4000).then(({ destroy }) => {
   setTimeout(() => {
-    destory()
+    destroy()
     message.success('成功', 4000)
   }, 2000)
 }
@@ -69,6 +69,6 @@ export interface MessageInstance {
 }
 
 export type MessageReturnType = {
-  destory(): boolean
+  destroy(): boolean
 }
 ```
