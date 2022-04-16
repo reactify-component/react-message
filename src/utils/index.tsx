@@ -73,7 +73,7 @@ const message: MessageInstance = {}
       if (isServerSide) {
         return {
           // mock ssr server
-          destroy() {
+          destory() {
             return true
           },
         }
@@ -107,9 +107,9 @@ const message: MessageInstance = {}
             <Message type={type} duration={reallyduration} message={message} />,
           )
         }
-        let isDestroyed = false
-        const destroy = () => {
-          if (isDestroyed) {
+        let isDestoryed = false
+        const destory = () => {
+          if (isDestoryed) {
             return false
           }
 
@@ -119,13 +119,13 @@ const message: MessageInstance = {}
             fragment.remove()
           })
 
-          isDestroyed = true
+          isDestoryed = true
           return true
         }
         // because Infinity is 0 in timer
         if (reallyduration !== Infinity) {
           setTimeout(() => {
-            destroy()
+            destory()
             // 加 500ms 动画时间
           }, reallyduration + 500)
         }
@@ -135,7 +135,7 @@ const message: MessageInstance = {}
         })
 
         resolve({
-          destroy,
+          destory,
         })
       })
     })

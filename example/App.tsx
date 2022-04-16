@@ -58,9 +58,9 @@ export default function () {
           type="button"
           className="btn btn-light"
           onClick={() => {
-            message.loading('Loading...', 4000).then(({ destroy }) => {
+            message.loading('Loading...', 4000).then(({ destory }) => {
               setTimeout(() => {
-                destroy()
+                destory()
                 message.success('成功', 4000)
               }, 2000)
             })
