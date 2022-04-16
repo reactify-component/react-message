@@ -1,5 +1,6 @@
 import React from 'react'
 import { message } from '~'
+
 export default function () {
   return (
     <div
@@ -57,9 +58,9 @@ export default function () {
           type="button"
           className="btn btn-light"
           onClick={() => {
-            message.loading('Loading...', 4000).then(({ destory }) => {
+            message.loading('Loading...', 4000).then(({ destroy }) => {
               setTimeout(() => {
-                destory()
+                destroy()
                 message.success('成功', 4000)
               }, 2000)
             })

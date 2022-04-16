@@ -108,7 +108,7 @@ const message: MessageInstance = {}
           )
         }
         let isDestroyed = false
-        const destory = () => {
+        const destroy = () => {
           if (isDestroyed) {
             return false
           }
@@ -125,7 +125,7 @@ const message: MessageInstance = {}
         // because Infinity is 0 in timer
         if (reallyduration !== Infinity) {
           setTimeout(() => {
-            destory()
+            destroy()
             // 加 500ms 动画时间
           }, reallyduration + 500)
         }
@@ -135,7 +135,7 @@ const message: MessageInstance = {}
         })
 
         resolve({
-          destory,
+          destroy,
         })
       })
     })
