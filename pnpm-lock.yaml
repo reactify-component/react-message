@@ -29,7 +29,7 @@ specifiers:
   rollup-plugin-postcss: 4.0.2
   rollup-plugin-terser: 7.0.2
   ts-jest: 27.1.4
-  tslib: 2.3.1
+  tslib: 2.4.0
   typescript: 4.6.3
   vite: 2.9.5
   vite-tsconfig-paths: 3.4.1
@@ -42,7 +42,7 @@ devDependencies:
   '@rollup/plugin-babel': 5.3.1_@babel+core@7.17.9+rollup@2.70.2
   '@rollup/plugin-commonjs': 21.1.0_rollup@2.70.2
   '@rollup/plugin-node-resolve': 13.2.1_rollup@2.70.2
-  '@rollup/plugin-typescript': 8.3.2_eaab4980cb5a437133211ecd98513266
+  '@rollup/plugin-typescript': 8.3.2_056aba5e56e0ab5307259a29131f3fbe
   '@types/jest': 27.4.1
   '@types/lodash-es': 4.17.6
   '@types/node': 16.11.27
@@ -63,7 +63,7 @@ devDependencies:
   rollup-plugin-postcss: 4.0.2_postcss@8.4.12
   rollup-plugin-terser: 7.0.2_rollup@2.70.2
   ts-jest: 27.1.4_1a7a295883fc72da5121c34ec472fa0c
-  tslib: 2.3.1
+  tslib: 2.4.0
   typescript: 4.6.3
   vite: 2.9.5
   vite-tsconfig-paths: 3.4.1_vite@2.9.5
@@ -858,7 +858,7 @@ packages:
       rollup: 2.70.2
     dev: true
 
-  /@rollup/plugin-typescript/8.3.2_eaab4980cb5a437133211ecd98513266:
+  /@rollup/plugin-typescript/8.3.2_056aba5e56e0ab5307259a29131f3fbe:
     resolution: {integrity: sha512-MtgyR5LNHZr3GyN0tM7gNO9D0CS+Y+vflS4v/PHmrX17JCkHUYKvQ5jN5o3cz1YKllM3duXUqu3yOHwMPUxhDg==}
     engines: {node: '>=8.0.0'}
     peerDependencies:
@@ -869,7 +869,7 @@ packages:
       '@rollup/pluginutils': 3.1.0_rollup@2.70.2
       resolve: 1.22.0
       rollup: 2.70.2
-      tslib: 2.3.1
+      tslib: 2.4.0
       typescript: 4.6.3
     dev: true
 
@@ -5268,7 +5268,7 @@ packages:
   /rxjs/7.5.2:
     resolution: {integrity: sha512-PwDt186XaL3QN5qXj/H9DGyHhP3/RYYgZZwqBv9Tv8rsAaiwFH1IsJJlcgD37J7UW5a6O67qX0KWKS3/pu0m4w==}
     dependencies:
-      tslib: 2.3.1
+      tslib: 2.4.0
     dev: true
 
   /safe-buffer/5.1.2:
@@ -5729,8 +5729,8 @@ packages:
     resolution: {integrity: sha512-Xni35NKzjgMrwevysHTCArtLDpPvye8zV/0E4EyYn43P7/7qvQwPh9BGkHewbMulVntbigmcT7rdX3BNo9wRJg==}
     dev: true
 
-  /tslib/2.3.1:
-    resolution: {integrity: sha512-77EbyPPpMz+FRFRuAFlWMtmgUWGe9UOG2Z25NqCwiIjRhOf5iKGuzSe5P2w1laq+FkRy4p+PCuVkJSGkzTEKVw==}
+  /tslib/2.4.0:
+    resolution: {integrity: sha512-d6xOpEDfsi2CZVlPQzGeux8XMwLT9hssAsaPYExaQMuYskwb+x1x7J371tWlbBdWHroy99KnVB6qIkUbs5X3UQ==}
     dev: true
 
   /tsutils/3.21.0_typescript@4.6.3:
