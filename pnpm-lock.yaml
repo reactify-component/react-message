@@ -18,7 +18,7 @@ specifiers:
   gh-pages: 3.2.3
   husky: 7.0.4
   jest: 27.5.1
-  lint-staged: 12.4.0
+  lint-staged: 12.4.1
   postcss: 8.4.12
   postcss-preset-env: 7.4.3
   prettier: 2.6.2
@@ -52,7 +52,7 @@ devDependencies:
   gh-pages: 3.2.3
   husky: 7.0.4
   jest: 27.5.1
-  lint-staged: 12.4.0
+  lint-staged: 12.4.1
   postcss: 8.4.12
   postcss-preset-env: 7.4.3_postcss@8.4.12
   prettier: 2.6.2
@@ -3854,8 +3854,8 @@ packages:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
     dev: true
 
-  /lint-staged/12.4.0:
-    resolution: {integrity: sha512-3X7MR0h9b7qf4iXf/1n7RlVAx+EzpAZXoCEMhVSpaBlgKDfH2ewf+QUm7BddFyq29v4dgPP+8+uYpWuSWx035A==}
+  /lint-staged/12.4.1:
+    resolution: {integrity: sha512-PTXgzpflrQ+pODQTG116QNB+Q6uUTDg5B5HqGvNhoQSGt8Qy+MA/6zSnR8n38+sxP5TapzeQGTvoKni0KRS8Vg==}
     engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     hasBin: true
     dependencies:
