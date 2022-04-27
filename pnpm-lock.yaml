@@ -14,7 +14,7 @@ specifiers:
   '@types/node': 16.11.31
   '@types/react': 18.0.8
   '@types/react-dom': 18.0.2
-  dts-bundle-generator: 6.8.0
+  dts-bundle-generator: 6.9.0
   gh-pages: 3.2.3
   husky: 7.0.4
   jest: 27.5.1
@@ -48,7 +48,7 @@ devDependencies:
   '@types/node': 16.11.31
   '@types/react': 18.0.8
   '@types/react-dom': 18.0.2
-  dts-bundle-generator: 6.8.0
+  dts-bundle-generator: 6.9.0
   gh-pages: 3.2.3
   husky: 7.0.4
   jest: 27.5.1
@@ -2053,8 +2053,8 @@ packages:
       domhandler: 4.3.0
     dev: true
 
-  /dts-bundle-generator/6.8.0:
-    resolution: {integrity: sha512-r92/SWfKd5G+rmYFapAMCgcPFfSIzqxcxH6J4EOmNidJhPSfnDey8dHlGttIIQUHQoy8+stH1KQcE23O8iGmNg==}
+  /dts-bundle-generator/6.9.0:
+    resolution: {integrity: sha512-hS8+NP2AUbbbgYkuuJfZzwdsvTMwA8oGoMkhKelQEjGU31tklEHF4pgDEYCkTscDX0BknsOs2hMJnbc9x/n1+g==}
     engines: {node: '>=12.0.0'}
     hasBin: true
     dependencies:
