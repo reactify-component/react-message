@@ -61,7 +61,7 @@
     "react-dom": "^18.0.0"
   },
   "devDependencies": {
-    "@babel/core": "7.17.9",
+    "@babel/core": "7.17.10",
     "@innei-util/eslint-config-react-ts": "0.8.2",
     "@innei-util/eslint-config-ts": "0.8.2",
     "@innei-util/prettier": "0.8.2",
