@@ -38,6 +38,5 @@ jobs:
           version: 7
           run_install: true
       - run: pnpm run build
-      - run: pnpm run test
         env:
           CI: true
