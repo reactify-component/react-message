@@ -76,7 +76,7 @@
     "@types/react": "18.0.8",
     "@types/react-dom": "18.0.3",
     "dts-bundle-generator": "6.9.0",
-    "gh-pages": "3.2.3",
+    "gh-pages": "4.0.0",
     "husky": "7.0.4",
     "lint-staged": "12.4.1",
     "postcss": "8.4.13",
