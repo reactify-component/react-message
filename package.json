@@ -79,7 +79,7 @@
     "gh-pages": "3.2.3",
     "husky": "7.0.4",
     "lint-staged": "12.4.1",
-    "postcss": "8.4.13",
+    "postcss": "8.4.14",
     "postcss-preset-env": "7.5.0",
     "prettier": "2.6.2",
     "react": "18.1.0",
