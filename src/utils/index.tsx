@@ -107,9 +107,9 @@ const message: MessageInstance = {}
             <Message type={type} duration={reallyduration} message={message} />,
           )
         }
-        let isDestoryed = false
+        let isDestroyed = false
         const destory = () => {
-          if (isDestoryed) {
+          if (isDestroyed) {
             return false
           }
 
@@ -119,7 +119,7 @@ const message: MessageInstance = {}
             fragment.remove()
           })
 
-          isDestoryed = true
+          isDestroyed = true
           return true
         }
         // because Infinity is 0 in timer
