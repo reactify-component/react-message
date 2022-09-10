@@ -7,10 +7,11 @@
   "type": "module",
   "main": "dist/index.cjs",
   "module": "dist/index.js",
-  "types": "types/index.d.ts",
+  "types": "dist/index.d.ts",
   "unpkg": "dist/index.umd.min.js",
   "exports": {
     ".": {
+      "type": "./dist/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
