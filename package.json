@@ -44,7 +44,8 @@
     ],
     "after": [
       "npm publish --access=public"
-    ]
+    ],
+    "changelog": true
   },
   "scripts": {
     "prepare": "husky install",
