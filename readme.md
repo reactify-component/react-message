@@ -70,5 +70,6 @@ export interface MessageInstance {
 
 export type MessageReturnType = {
   destory(): boolean
+  next(message: string): void
 }
 ```
