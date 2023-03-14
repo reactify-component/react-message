@@ -54,7 +54,7 @@
   display: inline-flex;
   align-items: center;
   animation: fade-small-large 0.3s both;
-  transition: width var(--text-transition);
+  transition: width var(--text-transition), height var(--text-transition);
 
   & .icon {
     display: inline-flex;

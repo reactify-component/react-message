@@ -92,7 +92,57 @@ export default function () {
             }, 1000)
           }}
         >
-          Text Transition
+          Text Transition Demo 1
+        </button>
+
+        <button
+          type="button"
+          className="btn btn-warning"
+          onClick={async () => {
+            const { next } = await message.success(
+              '你是今天第 1 个访问的人，欢迎你的到来~',
+              4000,
+            )
+            setTimeout(() => {
+              next('玩得愉快！')
+            }, 1000)
+          }}
+        >
+          Text Transition Demo 2
+        </button>
+
+        <button
+          type="button"
+          className="btn btn-warning"
+          onClick={async () => {
+            const { next } = await message.success(
+              '你是今天第 1 个访问的人，欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~',
+              4000,
+            )
+            setTimeout(() => {
+              next('玩得愉快！')
+            }, 1000)
+          }}
+        >
+          Text Transition Demo 3
+        </button>
+
+        <button
+          type="button"
+          className="btn btn-warning"
+          onClick={async () => {
+            const { next } = await message.success(
+              '你是今天第 1 个访问的人，',
+              4000,
+            )
+            setTimeout(() => {
+              next(
+                '玩得愉快！欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~',
+              )
+            }, 1000)
+          }}
+        >
+          Text Transition Demo 4
         </button>
       </div>
     </div>

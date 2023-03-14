@@ -47,7 +47,10 @@ export const Message: FC<MessageProps> = forwardRef((props, ref) => {
   const [currentWrapWidth, setCurrentWrapWidth] = useState<undefined | number>(
     undefined,
   )
-  const previousWidth = usePrevious(currentWrapWidth)
+  const [currentWrapHeight, setCurrentWrapHeight] = useState<
+    undefined | number
+  >(undefined)
+  // const previousWidth = usePrevious(currentWrapWidth)
 
   const wrapRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
@@ -91,6 +94,7 @@ export const Message: FC<MessageProps> = forwardRef((props, ref) => {
       const rect = $.getBoundingClientRect()
 
       setCurrentWrapWidth(rect.width)
+      setCurrentWrapHeight(rect.height)
     })
   }, [nextMessage])
 
@@ -135,6 +139,7 @@ export const Message: FC<MessageProps> = forwardRef((props, ref) => {
           className={styles['inner-wrap']}
           style={{
             width: currentWrapWidth,
+            height: currentWrapHeight,
           }}
           ref={wrapRef}
         >
@@ -143,13 +148,13 @@ export const Message: FC<MessageProps> = forwardRef((props, ref) => {
             className={`${styles['message']} ${
               isTextTransition ? styles['text-transition'] : ''
             }`}
-            style={
-              isTextTransition
-                ? {
-                    width: `${previousWidth}px`,
-                  }
-                : undefined
-            }
+            // style={
+            //   isTextTransition
+            //     ? {
+            //         width: `${previousWidth}px`,
+            //       }
+            //     : undefined
+            // }
             ref={messageRef}
           >
             <span>{currentMessage}</span>
