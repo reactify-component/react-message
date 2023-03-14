@@ -1,4 +1,4 @@
-import { Message, MessageContainer } from 'components/message'
+import { InstanceMethod, Message, MessageContainer } from 'components/message'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Root, createRoot } from 'react-dom/client'
@@ -83,7 +83,7 @@ const message: MessageInstance = {}
         let message: string
         const configDuration =
           typeof content === 'string' ? duration : content.duration ?? duration
-        const reallyduration =
+        const realDuration =
           typeof configDuration === 'function'
             ? configDuration()
             : configDuration
@@ -100,11 +100,20 @@ const message: MessageInstance = {}
         const fragment = document.createElement('div')
 
         let root: Root | null = null
+        let ins: InstanceMethod | null = null
+
         if (containerRoot) {
           root = createRoot(fragment)
 
           root.render(
-            <Message type={type} duration={reallyduration} message={message} />,
+            <Message
+              type={type}
+              duration={realDuration}
+              message={message}
+              getInstance={($) => {
+                ins = $
+              }}
+            />,
           )
         }
         let isDestroyed = false
@@ -113,7 +122,7 @@ const message: MessageInstance = {}
             return false
           }
 
-          root && root.unmount()
+          root?.unmount()
 
           requestAnimationFrame(() => {
             fragment.remove()
@@ -122,20 +131,43 @@ const message: MessageInstance = {}
           isDestroyed = true
           return true
         }
-        // because Infinity is 0 in timer
-        if (reallyduration !== Infinity) {
-          setTimeout(() => {
+
+        const setTimer = () => {
+          return setTimeout(() => {
             destory()
             // 加 500ms 动画时间
-          }, reallyduration + 500)
+          }, realDuration + 500)
+        }
+
+        let timerId: ReturnType<typeof setTimeout> | null = null
+        // because Infinity is 0 in timer
+        if (realDuration !== Infinity) {
+          timerId = setTimer()
         }
 
         requestAnimationFrame(() => {
           container.appendChild(fragment)
         })
 
+        const getInstance = () => {
+          return new Promise<InstanceMethod>((resolve) => {
+            requestAnimationFrame(() => {
+              resolve(ins!)
+            })
+          })
+        }
+
         resolve({
           destory,
+          next(message: string) {
+            if (timerId) {
+              clearTimeout(timerId)
+            }
+            getInstance().then((ins) => {
+              ins.next(message)
+              timerId = setTimer()
+            })
+          },
         })
       })
     })

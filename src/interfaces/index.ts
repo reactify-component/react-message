@@ -1,3 +1,5 @@
+import { InstanceMethod } from '~/components/message'
+
 export interface ArgsProps {
   content: string
   duration?: number | null
@@ -35,4 +37,5 @@ export interface MessageInstance {
 
 export type MessageReturnType = {
   destory(): boolean
+  next(message: string): void
 }

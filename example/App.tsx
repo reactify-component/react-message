@@ -19,7 +19,7 @@ export default function () {
         <button
           type="button"
           className="btn btn-success"
-          onClick={() => {
+          onClick={async () => {
             message.success('成功', 4000)
           }}
         >
@@ -80,6 +80,19 @@ export default function () {
           }}
         >
           Too long message.
+        </button>
+
+        <button
+          type="button"
+          className="btn btn-success"
+          onClick={async () => {
+            const { next } = await message.success('欢迎光临~', 4000)
+            setTimeout(() => {
+              next('你是今天第 1 个访问的人，欢迎你的到来~')
+            }, 1000)
+          }}
+        >
+          Text Transition
         </button>
       </div>
     </div>

@@ -1,3 +1,7 @@
+.wrap {
+  --text-transition: 0.5s;
+}
+
 :global(html.light) .wrap,
 :global(body.light) .wrap,
 .wrap {
@@ -26,7 +30,21 @@
   max-width: 80vw;
 }
 
+.hidden {
+  z-index: -999;
+  visibility: hidden;
+  opacity: 0;
+  height: 0;
+  margin: 0;
+  position: absolute;
+}
+
+.hidden .inner-wrap {
+  animation: none;
+}
+
 .inner-wrap {
+  overflow: hidden;
   border-radius: 2em;
   padding: 10px 16px;
   box-shadow: 0 3px 6px -4px rgb(0 0 0 / 12%), 0 6px 16px 0 rgb(0 0 0 / 8%),
@@ -36,6 +54,7 @@
   display: inline-flex;
   align-items: center;
   animation: fade-small-large 0.3s both;
+  transition: width var(--text-transition);
 
   & .icon {
     display: inline-flex;
@@ -49,6 +68,12 @@
     padding-left: 12px;
     word-break: break-all;
     text-align: left;
+    transition: opacity var(--text-transition);
+  }
+
+  & .text-transition {
+    opacity: 0.1;
+    position: absolute;
   }
 
   &.appear {
