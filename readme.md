@@ -19,15 +19,21 @@ npm i react-message-popup
 
 ```js
 import { message } from 'react-message-popup'
+
 message.success('成功', 4000)
 // etc.
 
-message.loading('Loading...', 4000).then(({ destory }) => {
+message.loading('Loading...', 4000).then(({ next }) => {
+  setTimeout(() => {
+    next('成功', 'success')
+  }, 2000)
+})
+
+message.success('成功', 4000).then(({ destory }) => {
   setTimeout(() => {
     destory()
-    message.success('成功', 4000)
   }, 2000)
-}
+})
 ```
 
 ## Interface
@@ -70,6 +76,6 @@ export interface MessageInstance {
 
 export type MessageReturnType = {
   destory(): boolean
-  next(message: string): void
+  next(message: string, type?: MessageType): void
 }
 ```

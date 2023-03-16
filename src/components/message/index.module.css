@@ -71,6 +71,10 @@
     transition: opacity var(--text-transition);
   }
 
+  & .op-transition {
+    opacity: 0.1;
+  }
+
   & .text-transition {
     opacity: 0.1;
     position: absolute;

@@ -71,7 +71,11 @@ const config = [
       // @ts-ignore
       peerDepsExternal(),
 
-      postcss({}),
+      postcss({
+        modules: {
+          generateScopedName: '[hash:base64:5]',
+        },
+      }),
     ],
 
     treeshake: true,

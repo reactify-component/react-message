@@ -1,4 +1,9 @@
-import { InstanceMethod, Message, MessageContainer } from 'components/message'
+import {
+  InstanceMethod,
+  Message,
+  MessageContainer,
+  MessageType,
+} from 'components/message'
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { Root, createRoot } from 'react-dom/client'
@@ -8,14 +13,14 @@ import { MessageInstance, MessageReturnType } from '~/interfaces'
 
 const { version } = ReactDOM
 
-const isServerSide = typeof window === 'undefined'
+const isServerSide = () => typeof window === 'undefined'
 let containerNode: HTMLElement | null
 let containerRoot: Root | null
 
 const getContainerNode: () => Promise<[HTMLElement, Root | null]> = () => {
   // eslint-disable-next-line no-async-promise-executor
   return new Promise<[HTMLElement, Root | null]>(async (resolve, reject) => {
-    if (isServerSide) {
+    if (isServerSide()) {
       return
     }
     if (!containerNode) {
@@ -70,7 +75,7 @@ const message: MessageInstance = {}
 
   message[type] = (content, duration = 2500) => {
     return new Promise<MessageReturnType>((resolve) => {
-      if (isServerSide) {
+      if (isServerSide()) {
         return {
           // mock ssr server
           destory() {
@@ -159,12 +164,12 @@ const message: MessageInstance = {}
 
         resolve({
           destory,
-          next(message: string) {
+          next(message: string, type?: MessageType) {
             if (timerId) {
               clearTimeout(timerId)
             }
             getInstance().then((ins) => {
-              ins.next(message)
+              ins.next(message, type)
               timerId = setTimer()
             })
           },

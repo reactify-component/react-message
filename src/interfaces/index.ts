@@ -1,4 +1,4 @@
-import { InstanceMethod } from '~/components/message'
+import { MessageType } from '~/components/message'
 
 export interface ArgsProps {
   content: string
@@ -37,5 +37,5 @@ export interface MessageInstance {
 
 export type MessageReturnType = {
   destory(): boolean
-  next(message: string): void
+  next(message: string, type?: MessageType): void
 }

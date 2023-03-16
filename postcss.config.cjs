@@ -1,5 +1,9 @@
 module.exports = {
   plugins: {
+    cssnano: {
+      preset: 'default',
+    },
+
     'postcss-preset-env': {
       autoprefixer: {
         flexbox: 'no-2009',

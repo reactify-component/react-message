@@ -11,7 +11,6 @@ import React, {
 import { MessageContainerPrefixId } from '~/constants'
 
 import { useGetState } from '../hooks/use-get-state'
-import { usePrevious } from '../hooks/use-previous'
 import {
   FaSolidCheckCircle,
   FaSolidExclamationCircle,
@@ -23,10 +22,12 @@ import {
 import styles from './index.module.css'
 
 export interface InstanceMethod {
-  next(message: string): void
+  next(message: string, type?: MessageType): void
 }
+export type MessageType = 'success' | 'warn' | 'error' | 'info' | 'loading'
+
 interface MessageProps {
-  type: 'success' | 'warn' | 'error' | 'info' | 'loading'
+  type: MessageType
   message: string
   duration?: number
 
@@ -43,7 +44,9 @@ const Icon = {
 export const Message: FC<MessageProps> = forwardRef((props, ref) => {
   const { type, message: originalMessage, duration, getInstance } = props
   const [currentMessage, setCurrentMessage] = useState(originalMessage)
+  const [currentIconType, setCurrentIconType] = useState(type)
   const [nextMessage, setNextMessage] = useState<string | null>(null)
+  const [nextIconType, setNextIconType] = useState<undefined | MessageType>()
   const [currentWrapWidth, setCurrentWrapWidth] = useState<undefined | number>(
     undefined,
   )
@@ -65,9 +68,17 @@ export const Message: FC<MessageProps> = forwardRef((props, ref) => {
     }
   }, [])
 
+  const getCurrentMessage = useGetState(currentMessage)
+  const getCurrentIconType = useGetState(currentIconType)
+  const getNextMessage = useGetState(nextMessage)
+  const getNextIconType = useGetState(nextIconType)
+
   const instanceMethodsRef = useRef<InstanceMethod>({
-    next(message) {
+    next(message, type) {
+      if (message === getCurrentMessage() && type === getCurrentIconType())
+        return
       setNextMessage(message)
+      setNextIconType(type)
     },
   })
 
@@ -79,9 +90,6 @@ export const Message: FC<MessageProps> = forwardRef((props, ref) => {
   useImperativeHandle(ref, () => instanceMethodsRef.current)
 
   const fakeHolderRef = useRef<HTMLDivElement>(null)
-
-  const getCurrentMessage = useGetState(currentMessage)
-  const getNextMessage = useGetState(nextMessage)
 
   useLayoutEffect(() => {
     if (getCurrentMessage() === nextMessage) {
@@ -114,9 +122,14 @@ export const Message: FC<MessageProps> = forwardRef((props, ref) => {
       setIsTextTransition(false)
 
       const nextMessage = getNextMessage()
+      const nextIconType = getNextIconType()
       if (nextMessage) {
         setCurrentMessage(nextMessage)
         setNextMessage(null)
+      }
+      if (nextIconType) {
+        setCurrentIconType(nextIconType)
+        setNextIconType(undefined)
       }
     }
 
@@ -143,18 +156,17 @@ export const Message: FC<MessageProps> = forwardRef((props, ref) => {
           }}
           ref={wrapRef}
         >
-          <div className={styles['icon']}>{Icon[type]}</div>
+          <div
+            className={`${styles['icon']} ${
+              isTextTransition ? styles['op-transition'] : ''
+            }`}
+          >
+            {Icon[currentIconType]}
+          </div>
           <div
             className={`${styles['message']} ${
               isTextTransition ? styles['text-transition'] : ''
             }`}
-            // style={
-            //   isTextTransition
-            //     ? {
-            //         width: `${previousWidth}px`,
-            //       }
-            //     : undefined
-            // }
             ref={messageRef}
           >
             <span>{currentMessage}</span>

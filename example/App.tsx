@@ -15,7 +15,7 @@ export default function () {
       }}
     >
       <div className="px-4 d-grid gap-3 text-center pb-5">
-        <h1>React Message Demo</h1>
+        <h1 className="mb-4">React Message Demo</h1>
         <button
           type="button"
           className="btn btn-success"
@@ -82,68 +82,78 @@ export default function () {
           Too long message.
         </button>
 
-        <button
-          type="button"
-          className="btn btn-success"
-          onClick={async () => {
-            const { next } = await message.success('欢迎光临~', 4000)
-            setTimeout(() => {
-              next('你是今天第 1 个访问的人，欢迎你的到来~')
-            }, 1000)
-          }}
-        >
-          Text Transition Demo 1
-        </button>
+        <div className="row">
+          <div className="col-sm">
+            <button
+              type="button"
+              className="btn btn-success"
+              onClick={async () => {
+                const { next } = await message.success('欢迎光临~', 4000)
+                setTimeout(() => {
+                  next('你是今天第 1 个访问的人，欢迎你的到来~')
+                }, 1000)
+              }}
+            >
+              Text switching 1
+            </button>
+          </div>
+          <div className="col-sm">
+            <button
+              type="button"
+              className="btn btn-warning"
+              onClick={async () => {
+                const { next } = await message.loading(
+                  '你是今天第 1 个访问的人，欢迎你的到来~',
+                  4000,
+                )
+                setTimeout(() => {
+                  next('玩得愉快！', 'success')
+                }, 1000)
+              }}
+            >
+              Text switching 2
+            </button>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-sm">
+            <button
+              type="button"
+              className="btn btn-warning"
+              onClick={async () => {
+                const { next } = await message.success(
+                  '你是今天第 1 个访问的人，欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~',
+                  4000,
+                )
+                setTimeout(() => {
+                  next('玩得愉快！')
+                }, 1000)
+              }}
+            >
+              Text switching 3
+            </button>
+          </div>
 
-        <button
-          type="button"
-          className="btn btn-warning"
-          onClick={async () => {
-            const { next } = await message.success(
-              '你是今天第 1 个访问的人，欢迎你的到来~',
-              4000,
-            )
-            setTimeout(() => {
-              next('玩得愉快！')
-            }, 1000)
-          }}
-        >
-          Text Transition Demo 2
-        </button>
-
-        <button
-          type="button"
-          className="btn btn-warning"
-          onClick={async () => {
-            const { next } = await message.success(
-              '你是今天第 1 个访问的人，欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~',
-              4000,
-            )
-            setTimeout(() => {
-              next('玩得愉快！')
-            }, 1000)
-          }}
-        >
-          Text Transition Demo 3
-        </button>
-
-        <button
-          type="button"
-          className="btn btn-warning"
-          onClick={async () => {
-            const { next } = await message.success(
-              '你是今天第 1 个访问的人，',
-              4000,
-            )
-            setTimeout(() => {
-              next(
-                '玩得愉快！欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~',
-              )
-            }, 1000)
-          }}
-        >
-          Text Transition Demo 4
-        </button>
+          <div className="col-sm">
+            <button
+              type="button"
+              className="btn btn-warning"
+              onClick={async () => {
+                const { next } = await message.success(
+                  '你是今天第 1 个访问的人，',
+                  4000,
+                )
+                setTimeout(() => {
+                  next(
+                    '玩得愉快！欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~',
+                  )
+                }, 1000)
+              }}
+            >
+              Text switching 4
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   )
