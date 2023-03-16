@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## [1.1.1](https://github.com/reactify-component/react-message/compare/v1.1.0...v1.1.1) (2023-03-16)
+
+
+### Features
+
+* transition message icon type ([8a7d468](https://github.com/reactify-component/react-message/commit/8a7d4682423cd112a6436c23dfdbc055200534bc))
+
+
+
 # [1.1.0](https://github.com/reactify-component/react-message/compare/v1.0.0...v1.1.0) (2023-03-14)
 
 
