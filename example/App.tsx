@@ -1,7 +1,16 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { message } from '~'
 
 export default function () {
+  useEffect(() => {
+    ;(async () => {
+      const { next } = await message.loading('发送中', 4000)
+
+      setTimeout(() => {
+        next('成功啦', 'success')
+      }, 1000)
+    })()
+  }, [])
   return (
     <div
       className="m-auto bottom-0"

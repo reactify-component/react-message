@@ -11,6 +11,7 @@ import React, {
 import { MessageContainerPrefixId } from '~/constants'
 
 import { useGetState } from '../hooks/use-get-state'
+import { usePrevious } from '../hooks/use-previous'
 import {
   FaSolidCheckCircle,
   FaSolidExclamationCircle,
@@ -121,8 +122,23 @@ export const Message: FC<MessageProps> = forwardRef((props, ref) => {
   const [isTextTransition, setIsTextTransition] = useState(false)
 
   const messageRef = useRef<HTMLDivElement>(null)
+
+  const previousWidth = usePrevious(currentWrapWidth)
+
+  useEffect(() => {
+    // if width is not changed, replace immediately
+    if (currentWrapWidth === previousWidth) {
+      const nextMessage = getNextMessage()
+      const nextIconType = getNextIconType()
+
+      nextIconType && setCurrentIconType(nextIconType)
+      nextMessage && setCurrentMessage(nextMessage)
+    }
+  }, [nextMessage])
+
   useEffect(() => {
     if (!wrapRef.current) return
+
     const $wrap = wrapRef.current
     // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
     const $message = messageRef.current!
