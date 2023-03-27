@@ -141,13 +141,13 @@ export default function () {
               onClick={async () => {
                 const { next } = await message.success(
                   '你是今天第 1 个访问的人，',
-                  4000,
+                  800,
                 )
                 setTimeout(() => {
                   next(
                     '玩得愉快！欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~你是今天第 1 个访问的人，欢迎你的到来~',
                   )
-                }, 1000)
+                }, 1500)
               }}
             >
               Text switching 4

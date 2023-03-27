@@ -1,7 +1,7 @@
 import {
-  InstanceMethod,
   Message,
   MessageContainer,
+  MessageInstanceRef,
   MessageType,
 } from 'components/message'
 import React from 'react'
@@ -66,14 +66,14 @@ const getContainerNode: () => Promise<[HTMLElement, Root | null]> = () => {
 
 // @ts-ignore
 
-const message: MessageInstance = {}
+const message$: MessageInstance = {}
 ;(['success', 'error', 'warn', 'info', 'loading'] as const).forEach((type) => {
   const is18 = version.startsWith('18')
   if (!is18) {
     throw new TypeError('react version low than 18 is not supported')
   }
 
-  message[type] = (content, duration = 2500) => {
+  message$[type] = (content, duration = 2500) => {
     return new Promise<MessageReturnType>((resolve) => {
       if (isServerSide()) {
         return {
@@ -105,7 +105,7 @@ const message: MessageInstance = {}
         const fragment = document.createElement('div')
 
         let root: Root | null = null
-        let ins: InstanceMethod | null = null
+        let ins: MessageInstanceRef | null = null
 
         if (containerRoot) {
           root = createRoot(fragment)
@@ -155,7 +155,7 @@ const message: MessageInstance = {}
         })
 
         const getInstance = () => {
-          return new Promise<InstanceMethod>((resolve) => {
+          return new Promise<MessageInstanceRef>((resolve) => {
             requestAnimationFrame(() => {
               resolve(ins!)
             })
@@ -164,13 +164,17 @@ const message: MessageInstance = {}
 
         resolve({
           destory,
-          next(message: string, type?: MessageType) {
+          next(content: string, newType?: MessageType) {
             if (timerId) {
               clearTimeout(timerId)
             }
             getInstance().then((ins) => {
-              ins.next(message, type)
-              timerId = setTimer()
+              if (ins.isMount()) {
+                ins.next(content, newType)
+                timerId = setTimer()
+              } else {
+                message$[newType || type](content, realDuration)
+              }
             })
           },
         })
@@ -178,13 +182,13 @@ const message: MessageInstance = {}
     })
   }
 })
-Object.defineProperty(message, 'warning', {
+Object.defineProperty(message$, 'warning', {
   get() {
-    return message.warn
+    return message$.warn
   },
 })
-export { message }
+export { message$ as message }
 if ('window' in globalThis) {
   // @ts-ignore
-  window.message = message
+  window.message = message$
 }

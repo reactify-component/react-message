@@ -21,8 +21,10 @@ import {
 // @ts-ignore
 import styles from './index.module.css'
 
-export interface InstanceMethod {
+export interface MessageInstanceRef {
   next(message: string, type?: MessageType): void
+
+  isMount: () => boolean
 }
 export type MessageType = 'success' | 'warn' | 'error' | 'info' | 'loading'
 
@@ -31,7 +33,7 @@ interface MessageProps {
   message: string
   duration?: number
 
-  getInstance?: (ins: InstanceMethod) => void
+  getInstance?: (ins: MessageInstanceRef) => void
 }
 
 const Icon = {
@@ -73,13 +75,23 @@ export const Message: FC<MessageProps> = forwardRef((props, ref) => {
   const getNextMessage = useGetState(nextMessage)
   const getNextIconType = useGetState(nextIconType)
 
-  const instanceMethodsRef = useRef<InstanceMethod>({
+  const isMounted = useRef(false)
+  useEffect(() => {
+    isMounted.current = true
+    return () => {
+      isMounted.current = false
+    }
+  }, [])
+
+  const instanceMethodsRef = useRef<MessageInstanceRef>({
     next(message, type) {
       if (message === getCurrentMessage() && type === getCurrentIconType())
         return
       setNextMessage(message)
       setNextIconType(type)
     },
+
+    isMount: () => isMounted.current,
   })
 
   useEffect(() => {
