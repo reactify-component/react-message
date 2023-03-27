@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## [1.1.3](https://github.com/Innei/react-message/compare/v1.1.2...v1.1.3) (2023-03-27)
+
+
+### Bug Fixes
+
+* if message width is same, change text ([b3e7d69](https://github.com/Innei/react-message/commit/b3e7d69e31d164ee005418245b6de92a0cbfbf74))
+
+
+
 ## [1.1.2](https://github.com/Innei/react-message/compare/v1.1.1...v1.1.2) (2023-03-27)
 
 
