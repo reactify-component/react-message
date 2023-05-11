@@ -1,3 +1,5 @@
+'use client'
+
 import { message } from './utils'
 
 export { Message, MessageContainer } from 'components/message'

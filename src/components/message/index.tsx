@@ -1,5 +1,7 @@
+'use client'
+
+import type { FC } from 'react'
 import React, {
-  FC,
   forwardRef,
   useEffect,
   useImperativeHandle,
@@ -215,7 +217,5 @@ export const Message: FC<MessageProps> = forwardRef((props, ref) => {
 })
 
 export const MessageContainer = () => {
-  return (
-    <div className={styles['container']} id={MessageContainerPrefixId}></div>
-  )
+  return <div className={styles['container']} id={MessageContainerPrefixId} />
 }

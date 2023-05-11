@@ -1,15 +1,14 @@
-import {
-  Message,
-  MessageContainer,
-  MessageInstanceRef,
-  MessageType,
-} from 'components/message'
+'use client'
+
+import type { MessageInstanceRef, MessageType } from 'components/message'
+import { Message, MessageContainer } from 'components/message'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Root, createRoot } from 'react-dom/client'
+import type { Root } from 'react-dom/client'
+import { createRoot } from 'react-dom/client'
 
 import { MessageContainerPrefixId } from '~/constants'
-import { MessageInstance, MessageReturnType } from '~/interfaces'
+import type { MessageInstance, MessageReturnType } from '~/interfaces'
 
 const { version } = ReactDOM
 

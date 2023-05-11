@@ -1,4 +1,4 @@
-import { MessageType } from '~/components/message'
+import type { MessageType } from '~/components/message'
 
 export interface ArgsProps {
   content: string
