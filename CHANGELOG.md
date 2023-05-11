@@ -1,5 +1,14 @@
 # CHANGELOG
 
+# [2.0.0-alpha.0](https://github.com/Innei/react-message/compare/v1.1.3...v2.0.0-alpha.0) (2023-05-11)
+
+
+### Bug Fixes
+
+* preserve directives build ([79da3f6](https://github.com/Innei/react-message/commit/79da3f68ce260c9230dd0e6b7fb473c4befe44c6))
+
+
+
 ## [1.1.3](https://github.com/Innei/react-message/compare/v1.1.2...v1.1.3) (2023-03-27)
 
 
